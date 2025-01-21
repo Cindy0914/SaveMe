@@ -48,9 +48,20 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            time += Time.deltaTime * 10f;
+            time += Time.deltaTime * 0.1f;
             TimeTxt.text = time.ToString("N2");
         }
+    }
+
+    public void endGame()
+    {
+        endTxt.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void successGame()
+    {
+        SceneManager.LoadScene("SuccessScene1");
     }
 
     public void Matched()
@@ -74,16 +85,5 @@ public class GameManager : MonoBehaviour
 
         firstCard = null;
         secondCard = null;
-    }
-
-    public void endGame()
-    {
-        endTxt.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    public void successGame()
-    {
-        SceneManager.LoadScene("SuccessScene1");
     }
 }
