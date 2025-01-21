@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * 10f;
             TimeTxt.text = time.ToString("N2");
         }
     }
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
             if (cardCount == 0)
             {
-                endGame();
+                successGame();
             }
         }
         else
@@ -79,5 +80,10 @@ public class GameManager : MonoBehaviour
     {
         endTxt.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void successGame()
+    {
+        SceneManager.LoadScene("SuccessScene1");
     }
 }
