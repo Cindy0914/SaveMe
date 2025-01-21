@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("Settings")]
     public Text timeTxt;
     public GameObject endTxt;
+    public GameObject DarkBox;
     public int cardCount = 0;
 
     public AudioClip clip;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         if (time > 30.0f)
         {
             endTxt.SetActive(true);
+            DarkBox.SetActive(true);
             Time.timeScale = 0.0f;
         }
     }
