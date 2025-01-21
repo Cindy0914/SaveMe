@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public int cardCount = 0;
     public bool isstart = false;
 
+    public GameObject WarningObject;
+    bool isWarning = false;
+
     float time = 0f;
 
     //AudioSource audioSource;
@@ -38,7 +41,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        Invoke("StartGame", 4.4f);
+        if (!isstart)
+        {
+            Invoke("StartGame", 4.4f);
+        }
+
         PlayerPrefs.SetFloat("clearTime", 0f);
 
         //audioSource = GetComponent<AudioSource>();
@@ -52,6 +59,11 @@ public class GameManager : MonoBehaviour
             Destroy(startAni);
             board.enabled = true;
 
+            if (!isWarning && time >= 20f)
+            {
+                Instantiate(WarningObject);
+                isWarning = true;
+            }
             if (time >= 30f)
             {
                 time = 30f;

@@ -560,6 +560,7 @@ MonoBehaviour:
   board: {fileID: 1323583189}
   cardCount: 0
   isstart: 1
+  WarningObject: {fileID: 7683551611900806066, guid: 4ef72ad077e2fb04e985663899cc0677, type: 3}
 --- !u!114 &1323583189
 MonoBehaviour:
   m_ObjectHideFlags: 0
