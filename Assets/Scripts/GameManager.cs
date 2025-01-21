@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public Board board;
 
     public int cardCount = 0;
-    bool isstart = false;
+    public bool isstart = false;
 
     float time = 0f;
 
@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        isstart = false;
 
         Invoke("StartGame", 4.4f);
 
@@ -49,6 +48,9 @@ public class GameManager : MonoBehaviour
     {
         if (isstart)
         {
+            Destroy(startAni);
+            board.enabled = true;
+
             if (time >= 30f)
             {
                 time = 30f;
@@ -72,9 +74,7 @@ public class GameManager : MonoBehaviour
     {
         if(board != null)
         {
-            board.enabled = true;
             isstart = true;
-            Destroy(startAni);
         }
     }
 

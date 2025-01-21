@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 1989402009}
   - component: {fileID: 1989402008}
   - component: {fileID: 1989402007}
-  - component: {fileID: 1989402006}
+  - component: {fileID: 1989402010}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -412,18 +412,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -500}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1989402006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989402004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc3bfe1c6dd97e42ab36863d1786060, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1989402007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,9 +456,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1989402006}
-        m_TargetAssemblyTypeName: RetryBtn, Assembly-CSharp
-        m_MethodName: Retry
+      - m_Target: {fileID: 1989402010}
+        m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
+        m_MethodName: gotutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -518,6 +506,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989402004}
   m_CullTransparentMesh: 1
+--- !u!114 &1989402010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989402004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4936a624bbce9554eace1576ac67f09c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2103100782
 GameObject:
   m_ObjectHideFlags: 0

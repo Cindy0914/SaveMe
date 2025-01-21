@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RetryBtn : MonoBehaviour
+public class StartBtn : MonoBehaviour
 {
-    public void Retry()
+    public void gotutorial()
     {
-        SceneManager.LoadScene("MainScene2");
+        SceneManager.LoadScene("MainScene1");
     }
 }
