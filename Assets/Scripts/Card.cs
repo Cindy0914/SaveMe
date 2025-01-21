@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.UI; // UI 관련 네임스페이스
 
 public class Card : MonoBehaviour
 {
@@ -14,7 +16,8 @@ public class Card : MonoBehaviour
     //AudioSource audioSource;
     //public AudioClip clip;
 
-    public SpriteRenderer frontImage;
+    // public SpriteRenderer frontImage;
+    public UnityEngine.UI.Image Aimage;
 
     void Start()
     {
@@ -29,7 +32,12 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        // frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        // Aimage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        Aimage.sprite = Resources.Load<Sprite>($"김자은{idx}");
+        Aimage.sprite = Resources.Load<Sprite>($"김태겸{idx}");
+        Aimage.sprite = Resources.Load<Sprite>($"윤지열{idx}");
+        Aimage.sprite = Resources.Load<Sprite>($"이시연{idx}");
     }
 
     public void OpenCard()
@@ -53,7 +61,7 @@ public class Card : MonoBehaviour
 
     public void DestroyCard()
     {
-        Invoke("DestroyCardInvoke", 1f);
+        Invoke("DestroyCardInvoke", 0.5f);
     }
 
     void DestroyCardInvoke()
@@ -63,7 +71,7 @@ public class Card : MonoBehaviour
 
     public void CloseCard()
     {
-        Invoke("CloseCardInvoke", 1f);
+        Invoke("CloseCardInvoke", 0.5f);
     }
 
     void CloseCardInvoke()

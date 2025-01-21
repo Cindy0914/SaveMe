@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Settings")]
     public static GameManager Instance;
 
     public Card firstCard;
     public Card secondCard;
 
     public Text TimeTxt;
-    public GameObject endTxt; //¾Øµå UI
+
+    [Header("GameObject")]
+    public GameObject endTxt; //End UI
 
     public GameObject startAni;
     public Board board;
@@ -51,9 +54,9 @@ public class GameManager : MonoBehaviour
             Destroy(startAni);
             board.enabled = true;
 
-            if (time >= 30f)
+            if (time >= 5f)
             {
-                time = 30f;
+                // time = 30f;
                 TimeTxt.text = time.ToString("00.00");
                 endGame();
             }
@@ -99,7 +102,8 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
             if (cardCount == 0)
             {
-                successGame();
+                // successGame();
+                endGame();
             }
         }
         else
