@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
     public int cardCount = 0;
 
-    public AudioClip audioClip;
+    public AudioClip clip;
 
     AudioSource audioSource;
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         if(firstCard.idx == secondCard.idx)
         {
-            audioSource.PlayOneShot(audioClip);
+            audioSource.PlayOneShot(clip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;

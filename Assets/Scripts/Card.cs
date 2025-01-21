@@ -6,7 +6,7 @@ public class Card : MonoBehaviour
     [Header("Settings")]
     public SpriteRenderer frontlamge;
     public Animator anim;
-    public AudioClip audioClip;
+    public AudioClip clip;
 
     AudioSource audioSource;
 
@@ -29,7 +29,7 @@ public class Card : MonoBehaviour
     public void OpenCard()
     {
         // 다른 효과음끼리 겹치지 않음
-        audioSource.PlayOneShot(audioClip);
+        audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
         front.SetActive(true);
         back.SetActive(false);
