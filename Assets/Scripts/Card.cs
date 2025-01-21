@@ -5,7 +5,7 @@ public class Card : MonoBehaviour
 
     [Header("Settings")]
     public SpriteRenderer frontlamge;
-    public Animator animator;
+    public Animator anim;
     public AudioClip audioClip;
 
     AudioSource audioSource;
@@ -30,7 +30,7 @@ public class Card : MonoBehaviour
     {
         // 다른 효과음끼리 겹치지 않음
         audioSource.PlayOneShot(audioClip);
-        animator.SetBool("isOpen", true);
+        anim.SetBool("isOpen", true);
         front.SetActive(true);
         back.SetActive(false);
 
@@ -68,7 +68,7 @@ public class Card : MonoBehaviour
 
     void CloseCardvoke()
     {
-        animator.SetBool("isOpen", false);
+        anim.SetBool("isOpen", false);
         front.SetActive(false);
         back.SetActive(true);
     }

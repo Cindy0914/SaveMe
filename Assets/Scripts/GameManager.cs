@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
     [Header("Settings")]
-    public Text TimeTxt;
-    public GameObject EndTxt;
-    public int CardCount = 0;
+    public Text timeTxt;
+    public GameObject endTxt;
+    public int cardCount = 0;
 
     public AudioClip audioClip;
 
@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        TimeTxt.text = time.ToString("N2");
+        timeTxt.text = time.ToString("N2");
         if (time > 30.0f)
         {
-            EndTxt.SetActive(true);
+            endTxt.SetActive(true);
             Time.timeScale = 0.0f;
         }
     }
@@ -51,11 +51,11 @@ public class GameManager : MonoBehaviour
             audioSource.PlayOneShot(audioClip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
-            CardCount -= 2;
-            if(CardCount == 0)
+            cardCount -= 2;
+            if(cardCount == 0)
             {
                 Time.timeScale = 0.0f;
-                EndTxt.SetActive(true);
+                endTxt.SetActive(true);
             }
         }
         else

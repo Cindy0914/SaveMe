@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9014935825382194940}
   - component: {fileID: -3369947673754633058}
-  - component: {fileID: 5121478406810059949}
+  - component: {fileID: 4298610159089684331}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -47,13 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa9206b1c76fbc4792594bb5265a1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontlamge: {fileID: 0}
-  animator: {fileID: 0}
+  frontlamge: {fileID: 2804798547269769658}
+  anim: {fileID: 4298610159089684331}
   audioClip: {fileID: 0}
   front: {fileID: 5605270616316327345}
   back: {fileID: 8877617452600399121}
   idx: 0
---- !u!95 &5121478406810059949
+--- !u!95 &4298610159089684331
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -383,7 +383,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4974662124988990575}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -3369947673754633058}
+        m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        m_MethodName: OpenCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8877617452600399121
 GameObject:
   m_ObjectHideFlags: 0
