@@ -1,63 +1,105 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance;
+
     public Card firstCard;
     public Card secondCard;
-    [Header("Settings")]
-    public Text timeTxt;
-    public GameObject endTxt;
-    public GameObject DarkBox;
+
+    public Text TimeTxt;
+    public GameObject endTxt; //¾Øµå UI
+
+    public GameObject startAni;
+    public Board board;
+
     public int cardCount = 0;
+    public bool isstart = false;
 
-    public AudioClip clip;
+    float time = 0f;
 
-    AudioSource audioSource;
+    //AudioSource audioSource;
+    //public AudioClip clip;
 
-    float time = 0.0f;
-
-    public void Awake() 
+    private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1.0f;
-        audioSource = GetComponent<AudioSource>();
+        Time.timeScale = 1f;
+
+        Invoke("StartGame", 4.4f);
+
+        //audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        timeTxt.text = time.ToString("N2");
-        if (time > 30.0f)
+        if (isstart)
         {
-            endTxt.SetActive(true);
-            DarkBox.SetActive(true);
-            Time.timeScale = 0.0f;
+            Destroy(startAni);
+            board.enabled = true;
+
+            if (time >= 30f)
+            {
+                time = 30f;
+                TimeTxt.text = time.ToString("00.00");
+                endGame();
+            }
+            else
+            {
+                time += Time.deltaTime;
+                TimeTxt.text = time.ToString("00.00");
+            }
         }
+        else
+        {
+            time = 0f;
+            TimeTxt.text = time.ToString("00.00");
+        }
+    }
+
+    private void StartGame()
+    {
+        if(board != null)
+        {
+            isstart = true;
+        }
+    }
+
+    public void endGame()
+    {
+        endTxt.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void successGame()
+    {
+        SceneManager.LoadScene("SuccessScene1");
     }
 
     public void Matched()
     {
-        if(firstCard.idx == secondCard.idx)
+        if (firstCard.idx == secondCard.idx)
         {
-            audioSource.PlayOneShot(clip);
+            //audioSource.PlayOneShot(clip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
-            if(cardCount == 0)
+            if (cardCount == 0)
             {
-                Time.timeScale = 0.0f;
-                endTxt.SetActive(true);
+                successGame();
             }
         }
         else
@@ -65,6 +107,7 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
+
         firstCard = null;
         secondCard = null;
     }

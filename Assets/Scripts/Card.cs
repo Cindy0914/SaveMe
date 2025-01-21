@@ -1,74 +1,74 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    public int idx = 0;
 
-    [Header("Settings")]
-    public SpriteRenderer frontlamge;
-    public Animator anim;
-    public AudioClip clip;
-
-    AudioSource audioSource;
-
-    [Header("GameObject")]
     public GameObject front;
     public GameObject back;
-    
-    public int idx = 0;
+
+    //public Animator Anim;
+
+    //AudioSource audioSource;
+    //public AudioClip clip;
+
+    public SpriteRenderer frontImage;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+
     }
 
     public void Setting(int number)
     {
         idx = number;
-        frontlamge.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
     }
+
     public void OpenCard()
     {
-        // 다른 효과음끼리 겹치지 않음
-        audioSource.PlayOneShot(clip);
-        anim.SetBool("isOpen", true);
+        //audioSource.PlayOneShot(clip);
+
+        //Anim.SetBool("isOpen", true);
         front.SetActive(true);
         back.SetActive(false);
 
-        // 첫 카드가 비었다면
         if (GameManager.Instance.firstCard == null)
         {
-            // 첫 카드를 내 정보를 넘겨준다
             GameManager.Instance.firstCard = this;
         }
-        // 비어있지 않다면
         else
         {
-            // 두번째 카드에 내 정보를 넘겨준다.
             GameManager.Instance.secondCard = this;
-            // Mached 함수를 호출
             GameManager.Instance.Matched();
-
         }
     }
 
     public void DestroyCard()
     {
-        Invoke("DestroyCardvoke", 0.5f);
+        Invoke("DestroyCardInvoke", 1f);
     }
 
-    void DestroyCardvoke()
+    void DestroyCardInvoke()
     {
         Destroy(gameObject);
     }
 
     public void CloseCard()
     {
-        Invoke("CloseCardvoke", 0.5f);
+        Invoke("CloseCardInvoke", 1f);
     }
 
-    void CloseCardvoke()
+    void CloseCardInvoke()
     {
-        anim.SetBool("isOpen", false);
+        //Anim.SetBool("isOpen", false);
         front.SetActive(false);
         back.SetActive(true);
     }
