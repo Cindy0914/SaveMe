@@ -9,7 +9,9 @@ public class ProfilePanel : MonoBehaviour
     [SerializeField] private TimePanel timePanel;
     
     [TextArea(5, 10)] public List<string> descriptions = new();
-    
+
+    float resultTime;
+
     public void Start()
     {
         InitTimePanel();
@@ -25,7 +27,10 @@ public class ProfilePanel : MonoBehaviour
     private void InitTimePanel()
     {
         // var resultTime = GameManager.Instance.GetTime();
-        var resultTime = 5;
+        if (PlayerPrefs.HasKey("clearTime"))
+        {
+            resultTime = PlayerPrefs.GetFloat("clearTime");
+        }
         timePanel.SetTime(resultTime);
     }
 

@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         Invoke("StartGame", 4.4f);
+        PlayerPrefs.SetFloat("clearTime", 0f);
 
         //audioSource = GetComponent<AudioSource>();
     }
@@ -86,7 +87,8 @@ public class GameManager : MonoBehaviour
 
     public void successGame()
     {
-        SceneManager.LoadScene("SuccessScene1");
+        PlayerPrefs.SetFloat("clearTime", time);
+        SceneManager.LoadScene("SuccessScene");
     }
 
     public void Matched()
