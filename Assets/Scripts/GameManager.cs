@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            time += Time.deltaTime * 0.1f;
+            time += Time.deltaTime;
             TimeTxt.text = time.ToString("N2");
         }
     }
