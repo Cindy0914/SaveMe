@@ -14,7 +14,11 @@ public class GameManager : MonoBehaviour
     public Text TimeTxt;
     public GameObject endTxt; //¾Øµå UI
 
+    public GameObject startAni;
+    public Board board;
+
     public int cardCount = 0;
+    bool isstart = false;
 
     float time = 0f;
 
@@ -33,6 +37,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        isstart = false;
+
+        Invoke("StartGame", 4.4f);
 
         //audioSource = GetComponent<AudioSource>();
     }
@@ -40,16 +47,34 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (time >= 30f)
+        if (isstart)
         {
-            time = 30f;
-            TimeTxt.text = time.ToString("N2");
-            endGame();
+            if (time >= 30f)
+            {
+                time = 30f;
+                TimeTxt.text = time.ToString("00.00");
+                endGame();
+            }
+            else
+            {
+                time += Time.deltaTime;
+                TimeTxt.text = time.ToString("00.00");
+            }
         }
         else
         {
-            time += Time.deltaTime;
-            TimeTxt.text = time.ToString("N2");
+            time = 0f;
+            TimeTxt.text = time.ToString("00.00");
+        }
+    }
+
+    private void StartGame()
+    {
+        if(board != null)
+        {
+            board.enabled = true;
+            isstart = true;
+            Destroy(startAni);
         }
     }
 
