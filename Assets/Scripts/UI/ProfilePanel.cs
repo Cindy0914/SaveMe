@@ -24,8 +24,8 @@ public class ProfilePanel : MonoBehaviour
 
     private void InitTimePanel()
     {
-        // var time = GameManager.Instance.GetTime();
-        var resultTime = 0;
+        // var resultTime = GameManager.Instance.GetTime();
+        var resultTime = 5;
         timePanel.SetTime(resultTime);
     }
 

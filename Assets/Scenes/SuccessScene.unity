@@ -1676,6 +1676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007596879}
   - component: {fileID: 1007596881}
+  - component: {fileID: 1007596882}
   - component: {fileID: 1007596880}
   m_Layer: 5
   m_Name: panel_Timer
@@ -1742,6 +1743,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007596878}
   m_CullTransparentMesh: 1
+--- !u!114 &1007596882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007596878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebf7a5a98c664f43a016e0f011acdb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmpTime: {fileID: 166214588}
 --- !u!1 &1092571758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +2512,7 @@ MonoBehaviour:
   - {fileID: 270460553}
   - {fileID: 1995688208}
   - {fileID: 115981101}
+  timePanel: {fileID: 1007596882}
   descriptions:
   - "\uD300\uC7A5 \uC724\uC9C0\uC5F4\nTMI 01\nTMI 02\nTMI 03"
   - "\uD300\uC6D0 \uAE40\uD0DC\uACB8\nTMI 01\nTMI 02\nTMI 03"
