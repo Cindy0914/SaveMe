@@ -7,7 +7,7 @@ public class Warning : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(0f, 3f, 0f);
+        transform.position = new Vector3(0f, 2.5f, 0f);
         transform.localScale = new Vector3(1f, 0f, 1f);
     }
 
