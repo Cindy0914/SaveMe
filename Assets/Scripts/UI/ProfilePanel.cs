@@ -47,8 +47,8 @@ public class ProfilePanel : MonoBehaviour
             var profile = profiles[i];
             profile.tmpName.gameObject.SetActive(false);
             profile.tmpDesc.gameObject.SetActive(false);
-            profile.picture_01.SetActive(false);
-            profile.picture_02.SetActive(false);
+            // profile.picture_01.SetActive(false);
+            // profile.picture_02.SetActive(false);
         }
     }
 
@@ -71,8 +71,8 @@ public class ProfilePanel : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
 
-        profile.picture_01.SetActive(true);
-        profile.picture_02.SetActive(true);
+        // profile.picture_01.SetActive(true);
+        // profile.picture_02.SetActive(true);
     }
 
     private IEnumerator ShowTextName(Profile profile)
