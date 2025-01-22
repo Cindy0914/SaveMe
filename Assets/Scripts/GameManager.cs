@@ -21,9 +21,15 @@ public class GameManager : MonoBehaviour
     public Board board;
 
     public int cardCount = 0;
-    public bool isstart = false;
+
+    public GameObject WarningObject;
+    bool isWarning = false;
 
     float time = 0f;
+    float timeshow = 0f;
+
+    public Animator StartAnim;
+    bool startgame = false;
 
     AudioSource audioSource;
     public AudioClip clip;
@@ -41,7 +47,18 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        Invoke("StartGame", 4.4f);
+        if (!System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")))
+        {
+            Invoke("StartGame", 5.7f);
+        }
+        else
+        {
+            Invoke("StartGame", 2.3f);
+        }
+
+        StartAnim.SetBool("istutorial", System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")));
+
+        PlayerPrefs.SetFloat("clearTime", 0f);
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -49,26 +66,39 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isstart)
+        if (startgame)
         {
             Destroy(startAni);
             board.enabled = true;
 
+            if (!isWarning && time >= 20f)
+            {
+                Instantiate(WarningObject);
+                isWarning = true;
+            }
             if (time >= 30f)
             {
+<<<<<<< HEAD
                 TimeTxt.text = time.ToString("00.00");
+=======
+                time = 30f;
+                timeshow = 30f - time;
+                TimeTxt.text = timeshow.ToString("00.00");
+>>>>>>> main
                 endGame();
             }
             else
             {
                 time += Time.deltaTime;
-                TimeTxt.text = time.ToString("00.00");
+                timeshow = 30f - time;
+                TimeTxt.text = timeshow.ToString("00.00");
             }
         }
         else
         {
             time = 0f;
-            TimeTxt.text = time.ToString("00.00");
+            timeshow = 30f - time;
+            TimeTxt.text = timeshow.ToString("00.00");
         }
     }
 
@@ -76,7 +106,8 @@ public class GameManager : MonoBehaviour
     {
         if(board != null)
         {
-            isstart = true;
+            PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(true));
+            startgame = true;
         }
     }
 
@@ -88,6 +119,10 @@ public class GameManager : MonoBehaviour
 
     public void successGame()
     {
+<<<<<<< HEAD
+=======
+        PlayerPrefs.SetFloat("clearTime", time);
+>>>>>>> main
         SceneManager.LoadScene("SuccessScene");
     }
 

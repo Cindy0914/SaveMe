@@ -1,5 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Scenes/MainScene.unity.meta
 guid: 8b1b320b1ffb95f439b8e9b994c74d98
+========
+guid: e896b7060815862448fa2f1c1d202993
+folderAsset: yes
+>>>>>>>> main:Assets/Addimage.meta
+=======
+guid: 3825c86669553bb44b12d1ec2bc80c23
+>>>>>>> main
 DefaultImporter:
   externalObjects: {}
   userData: 

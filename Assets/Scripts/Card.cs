@@ -32,9 +32,13 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
+<<<<<<< HEAD
         // frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
         // Aimage.sprite = Resources.Load<Sprite>($"rtan{idx}");
         Aimage.sprite = Resources.Load<Sprite>($"Resize/Picture{idx}");
+=======
+        frontImage.sprite = Resources.Load<Sprite>($"Picture{idx}");
+>>>>>>> main
     }
 
     public void OpenCard()

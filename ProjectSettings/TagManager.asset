@@ -41,6 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: dark
-    uniqueID: 4171766737
+  - name: Card
+    uniqueID: 2997416599
     locked: 0

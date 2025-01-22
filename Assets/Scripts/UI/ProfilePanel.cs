@@ -1,36 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class ProfilePanel : MonoBehaviour
 {
     [SerializeField] private List<Profile> profiles = new();
     [SerializeField] private TimePanel timePanel;
+    
+    private readonly WaitForSeconds wait_100ms = new(0.1f);
 
-    public List<string> names = new();
-    [TextArea(5, 10)]
-    public List<string> descriptions = new();
+    float resultTime;
 
     public void Start()
     {
-        InitTimePanel();
         InitProfile();
+        InitTimePanel();
 
         StopAllCoroutines();
         for (int i = 0; i < profiles.Count; i++)
         {
             var profile = profiles[i];
-            var description = descriptions[i];
-            var name = names[i];
-            StartCoroutine(ShowTextOneByOne(profile, description, name));
+            StartCoroutine(ShowTextOneByOne(profile));
         }
     }
 
     private void InitTimePanel()
     {
-        // var resultTime = GameManager.Instance.GetTime();
-        var resultTime = 5;
+        if (PlayerPrefs.HasKey("clearTime"))
+        {
+            resultTime = PlayerPrefs.GetFloat("clearTime");
+        }
         timePanel.SetTime(resultTime);
     }
 
@@ -42,53 +41,50 @@ public class ProfilePanel : MonoBehaviour
             Debug.LogWarning("Profiles count mismatch");
             return;
         }
-        if (descriptions.Count != teamCount)
-        {
-            Debug.LogWarning("descriptions count mismatch");
-            return;
-        }
-        if (names.Count != teamCount)
-        {
-            Debug.LogWarning("names count mismatch");
-            return;
-        }
 
         for (int i = 0; i < profiles.Count; i++)
         {
             var profile = profiles[i];
-            profile.tmpDesc.text = string.Empty;
-            profile.tmpName.text = string.Empty;
+            profile.tmpName.gameObject.SetActive(false);
+            profile.tmpDesc.gameObject.SetActive(false);
             profile.picture_01.SetActive(false);
             profile.picture_02.SetActive(false);
         }
     }
 
-    private IEnumerator ShowTextOneByOne(Profile profile, string description, string name)
+    private IEnumerator ShowTextOneByOne(Profile profile)
     {
         yield return StartCoroutine(ShowPicture(profile));
-        yield return StartCoroutine(ShowTextName(profile, name));
+        yield return StartCoroutine(ShowTextName(profile));
+        
+        var description = profile.tmpDesc.text;
+        profile.tmpDesc.text = string.Empty;
+        profile.tmpDesc.gameObject.SetActive(true);
         foreach (var letter in description)
         {
             profile.tmpDesc.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return wait_100ms;
         }
     }
 
     private IEnumerator ShowPicture(Profile profile)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
 
         profile.picture_01.SetActive(true);
         profile.picture_02.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
     }
 
-    private IEnumerator ShowTextName(Profile profile, string name)
+    private IEnumerator ShowTextName(Profile profile)
     {
-        foreach (var letter in name)
+        var nameStr = profile.tmpName.text;
+        profile.tmpName.text = string.Empty;
+        profile.tmpName.gameObject.SetActive(true);
+        
+        foreach (var letter in nameStr)
         {
             profile.tmpName.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return wait_100ms;
         }
     }
 }

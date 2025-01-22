@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimePanel : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI tmpTime;
+    [SerializeField] private Text tmpTime;
 
     public void SetTime(float time)
     {
