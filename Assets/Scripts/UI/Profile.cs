@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class Profile : MonoBehaviour
 {
+    [SerializeField] public TextMeshProUGUI tmpName;
     [SerializeField] public TextMeshProUGUI tmpDesc;
     [SerializeField] public GameObject picture_01;
     [SerializeField] public GameObject picture_02;
