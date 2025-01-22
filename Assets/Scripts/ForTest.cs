@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class StartBtn : MonoBehaviour
+public class ForTest : MonoBehaviour
 {
-    public void gotutorial()
+    // Start is called before the first frame update
+    void Start()
     {
         PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(false));
-        SceneManager.LoadScene("MainScene1");
     }
 }

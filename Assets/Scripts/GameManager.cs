@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     public Board board;
 
     public int cardCount = 0;
-    public bool isstart = false;
 
     public GameObject WarningObject;
     bool isWarning = false;
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        if (!isstart)
+        if (!System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")))
         {
             Invoke("StartGame", 4.4f);
         }
@@ -54,7 +53,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isstart)
+        if (System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")))
         {
             Destroy(startAni);
             board.enabled = true;
@@ -87,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
         if(board != null)
         {
-            isstart = true;
+            PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(true));
         }
     }
 
