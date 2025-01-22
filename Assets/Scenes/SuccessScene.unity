@@ -1609,7 +1609,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "1. \uACE0\uC591\uC774\uB97C \uC88B\uC544\uD569\uB2C8\uB2E4.\r\n2. \uB108\uADF8\uB7EC\uC6B4
-    \uC11C\uD3FF \uC720\uC800\r\n3. INFJ - \uB300\uBB38\uC790 "
+    \uC11C\uD3FF \uC720\uC800\r\n3. INFJ - \uB300\uBB38\uC790 F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e774e7c5f484f448b1b11ae67990a09, type: 2}
   m_sharedMaterial: {fileID: -3011249375970584225, guid: 8e774e7c5f484f448b1b11ae67990a09, type: 2}
@@ -5070,7 +5070,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.6, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
