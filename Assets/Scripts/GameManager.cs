@@ -25,20 +25,15 @@ public class GameManager : MonoBehaviour
 
     float time = 0f;
 
-    public TimePanel timePanel;
-
-
-    //AudioSource audioSource;
-    //public AudioClip clip;
+    AudioSource audioSource;
+    public AudioClip clip;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            // DontDestroyOnLoad(gameObject);
         }
-        // Destroy(gameObject);
     }
 
     // Start is called before the first frame update
@@ -48,7 +43,7 @@ public class GameManager : MonoBehaviour
 
         Invoke("StartGame", 4.4f);
 
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -100,7 +95,7 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            //audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
