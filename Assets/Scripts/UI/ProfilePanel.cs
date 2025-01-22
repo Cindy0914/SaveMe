@@ -80,7 +80,6 @@ public class ProfilePanel : MonoBehaviour
 
         profile.picture_01.SetActive(true);
         profile.picture_02.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
     }
 
     private IEnumerator ShowTextName(Profile profile, string name)
