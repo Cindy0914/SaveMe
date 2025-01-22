@@ -9,6 +9,8 @@ public class ProfilePanel : MonoBehaviour
     
     private readonly WaitForSeconds wait_100ms = new(0.1f);
 
+    float resultTime;
+
     public void Start()
     {
         InitProfile();
@@ -24,7 +26,8 @@ public class ProfilePanel : MonoBehaviour
 
     private void InitTimePanel()
     {
-        // var resultTime = GameManager.Instance.GetTime();if (PlayerPrefs.HasKey("clearTime"))
+        // var resultTime = GameManager.Instance.GetTime();
+        if (PlayerPrefs.HasKey("clearTime"))
         {
             resultTime = PlayerPrefs.GetFloat("clearTime");
         }
