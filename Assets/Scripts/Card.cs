@@ -34,10 +34,7 @@ public class Card : MonoBehaviour
         idx = number;
         // frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
         // Aimage.sprite = Resources.Load<Sprite>($"rtan{idx}");
-        Aimage.sprite = Resources.Load<Sprite>($"김자은{idx}");
-        Aimage.sprite = Resources.Load<Sprite>($"김태겸{idx}");
-        Aimage.sprite = Resources.Load<Sprite>($"윤지열{idx}");
-        Aimage.sprite = Resources.Load<Sprite>($"이시연{idx}");
+        Aimage.sprite = Resources.Load<Sprite>($"C{idx}");
     }
 
     public void OpenCard()

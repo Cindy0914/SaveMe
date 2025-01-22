@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
             Destroy(startAni);
             board.enabled = true;
 
-            if (time >= 5f)
+            if (time >= 30f)
             {
                 // time = 30f;
                 TimeTxt.text = time.ToString("00.00");
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void successGame()
     {
-        SceneManager.LoadScene("SuccessScene1");
+        SceneManager.LoadScene("SuccessScene");
     }
 
     public void Matched()
@@ -102,8 +102,8 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
             if (cardCount == 0)
             {
-                // successGame();
-                endGame();
+                successGame();
+                // endGame();
             }
         }
         else

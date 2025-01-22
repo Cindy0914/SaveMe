@@ -7,6 +7,6 @@ public class StartBtn : MonoBehaviour
 {
     public void gotutorial()
     {
-        SceneManager.LoadScene("MainScene1");
+        SceneManager.LoadScene("MainScene");
     }
 }
