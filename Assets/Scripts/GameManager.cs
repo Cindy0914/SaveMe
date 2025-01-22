@@ -78,13 +78,9 @@ public class GameManager : MonoBehaviour
             }
             if (time >= 30f)
             {
-<<<<<<< HEAD
-                TimeTxt.text = time.ToString("00.00");
-=======
                 time = 30f;
                 timeshow = 30f - time;
                 TimeTxt.text = timeshow.ToString("00.00");
->>>>>>> main
                 endGame();
             }
             else
@@ -119,10 +115,7 @@ public class GameManager : MonoBehaviour
 
     public void successGame()
     {
-<<<<<<< HEAD
-=======
         PlayerPrefs.SetFloat("clearTime", time);
->>>>>>> main
         SceneManager.LoadScene("SuccessScene");
     }
 
