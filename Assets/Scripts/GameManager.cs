@@ -2,14 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public Card firstCard;
+    public Card secondCard;
+
     public Text TimeTxt;
+    public GameObject endTxt; //¾Øµå UI
+
+    public GameObject startAni;
+    public Board board;
+
+    public int cardCount = 0;
+
+    public GameObject WarningObject;
+    bool isWarning = false;
 
     float time = 0f;
+    float timeshow = 0f;
+
+    public Animator StartAnim;
+    bool startgame = false;
+
+    //AudioSource audioSource;
+    //public AudioClip clip;
 
     private void Awake()
     {
@@ -19,28 +39,103 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        Time.timeScale = 1f;
 
-
-    void Update()
-    {
-        time += Time.deltaTime * 10f;
-        TimeTxt.text = time.ToString("00.00");
-
-        /*if (time >= 30f)
+        if (!System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")))
         {
-            time = 30f;
-            TimeTxt.text = time.ToString("00.00");
-            endGame();
+            Invoke("StartGame", 5.7f);
         }
         else
         {
-            time += Time.deltaTime;
-            TimeTxt.text = time.ToString("00.00");
-        }*/
+            Invoke("StartGame", 2.3f);
+        }
+
+        StartAnim.SetBool("istutorial", System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")));
+
+        PlayerPrefs.SetFloat("clearTime", 0f);
+
+        //audioSource = GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (startgame)
+        {
+            Destroy(startAni);
+            board.enabled = true;
+
+            if (!isWarning && time >= 20f)
+            {
+                Instantiate(WarningObject);
+                isWarning = true;
+            }
+            if (time >= 30f)
+            {
+                time = 30f;
+                timeshow = 30f - time;
+                TimeTxt.text = timeshow.ToString("00.00");
+                endGame();
+            }
+            else
+            {
+                time += Time.deltaTime;
+                timeshow = 30f - time;
+                TimeTxt.text = timeshow.ToString("00.00");
+            }
+        }
+        else
+        {
+            time = 0f;
+            timeshow = 30f - time;
+            TimeTxt.text = timeshow.ToString("00.00");
+        }
+    }
+
+    private void StartGame()
+    {
+        if(board != null)
+        {
+            PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(true));
+            startgame = true;
+        }
+    }
+
+    public void endGame()
+    {
+        endTxt.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void successGame()
+    {
+        PlayerPrefs.SetFloat("clearTime", time);
+        SceneManager.LoadScene("SuccessScene");
+    }
+
+    public void Matched()
+    {
+        if (firstCard.idx == secondCard.idx)
+        {
+            //audioSource.PlayOneShot(clip);
+            firstCard.DestroyCard();
+            secondCard.DestroyCard();
+            cardCount -= 2;
+            if (cardCount == 0)
+            {
+                successGame();
+            }
+        }
+        else
+        {
+            firstCard.CloseCard();
+            secondCard.CloseCard();
+        }
+
+        firstCard = null;
+        secondCard = null;
     }
 }
