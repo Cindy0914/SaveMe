@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     float time = 0f;
     float timeshow = 0f;
 
+    public Animator StartAnim;
+    bool startgame = false;
+
     //AudioSource audioSource;
     //public AudioClip clip;
 
@@ -43,8 +46,14 @@ public class GameManager : MonoBehaviour
 
         if (!System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")))
         {
-            Invoke("StartGame", 4.4f);
+            Invoke("StartGame", 5.7f);
         }
+        else
+        {
+            Invoke("StartGame", 2.3f);
+        }
+
+        StartAnim.SetBool("istutorial", System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")));
 
         PlayerPrefs.SetFloat("clearTime", 0f);
 
@@ -54,7 +63,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")))
+        if (startgame)
         {
             Destroy(startAni);
             board.enabled = true;
@@ -81,6 +90,7 @@ public class GameManager : MonoBehaviour
         else
         {
             time = 0f;
+            timeshow = 30f - time;
             TimeTxt.text = timeshow.ToString("00.00");
         }
     }
@@ -90,6 +100,7 @@ public class GameManager : MonoBehaviour
         if(board != null)
         {
             PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(true));
+            startgame = true;
         }
     }
 
