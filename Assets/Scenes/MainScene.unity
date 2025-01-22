@@ -2823,7 +2823,7 @@ GameObject:
   - component: {fileID: 541880063}
   - component: {fileID: 541880062}
   m_Layer: 5
-  m_Name: img_TimerFrame
+  m_Name: TimerFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
