@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
 
     float time = 0f;
 
+    public TimePanel timePanel;
+
+
     //AudioSource audioSource;
     //public AudioClip clip;
 
@@ -33,7 +36,9 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            // DontDestroyOnLoad(gameObject);
         }
+        // Destroy(gameObject);
     }
 
     // Start is called before the first frame update
@@ -56,7 +61,6 @@ public class GameManager : MonoBehaviour
 
             if (time >= 30f)
             {
-                // time = 30f;
                 TimeTxt.text = time.ToString("00.00");
                 endGame();
             }

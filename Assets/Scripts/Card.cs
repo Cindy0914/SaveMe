@@ -13,15 +13,15 @@ public class Card : MonoBehaviour
 
     //public Animator Anim;
 
-    //AudioSource audioSource;
-    //public AudioClip clip;
+    AudioSource audioSource;
+    public AudioClip clip;
 
     // public SpriteRenderer frontImage;
     public UnityEngine.UI.Image Aimage;
 
     void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -39,7 +39,7 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
-        //audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clip);
 
         //Anim.SetBool("isOpen", true);
         front.SetActive(true);
