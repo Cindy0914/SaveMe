@@ -29,7 +29,7 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        frontImage.sprite = Resources.Load<Sprite>($"Picture{idx}");
     }
 
     public void OpenCard()
@@ -53,7 +53,7 @@ public class Card : MonoBehaviour
 
     public void DestroyCard()
     {
-        Invoke("DestroyCardInvoke", 1f);
+        Invoke("DestroyCardInvoke", 0.5f);
     }
 
     void DestroyCardInvoke()
@@ -63,7 +63,7 @@ public class Card : MonoBehaviour
 
     public void CloseCard()
     {
-        Invoke("CloseCardInvoke", 1f);
+        Invoke("CloseCardInvoke", 0.5f);
     }
 
     void CloseCardInvoke()

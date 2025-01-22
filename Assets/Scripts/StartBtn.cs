@@ -8,6 +8,6 @@ public class StartBtn : MonoBehaviour
     public void gotutorial()
     {
         PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(false));
-        SceneManager.LoadScene("MainScene1");
+        SceneManager.LoadScene("MainScene");
     }
 }

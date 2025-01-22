@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     bool isWarning = false;
 
     float time = 0f;
+    float timeshow = 0f;
 
     //AudioSource audioSource;
     //public AudioClip clip;
@@ -66,19 +67,21 @@ public class GameManager : MonoBehaviour
             if (time >= 30f)
             {
                 time = 30f;
-                TimeTxt.text = time.ToString("00.00");
+                timeshow = 30f - time;
+                TimeTxt.text = timeshow.ToString("00.00");
                 endGame();
             }
             else
             {
                 time += Time.deltaTime;
-                TimeTxt.text = time.ToString("00.00");
+                timeshow = 30f - time;
+                TimeTxt.text = timeshow.ToString("00.00");
             }
         }
         else
         {
             time = 0f;
-            TimeTxt.text = time.ToString("00.00");
+            TimeTxt.text = timeshow.ToString("00.00");
         }
     }
 
