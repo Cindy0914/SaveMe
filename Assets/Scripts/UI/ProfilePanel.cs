@@ -8,8 +8,7 @@ public class ProfilePanel : MonoBehaviour
     [SerializeField] private TimePanel timePanel;
     
     private readonly WaitForSeconds wait_100ms = new(0.1f);
-
-    float resultTime;
+    private float resultTime;
 
     public void Start()
     {
@@ -47,16 +46,14 @@ public class ProfilePanel : MonoBehaviour
             var profile = profiles[i];
             profile.tmpName.gameObject.SetActive(false);
             profile.tmpDesc.gameObject.SetActive(false);
-            // profile.picture_01.SetActive(false);
-            // profile.picture_02.SetActive(false);
         }
     }
 
     private IEnumerator ShowTextOneByOne(Profile profile)
     {
-        yield return StartCoroutine(ShowPicture(profile));
+        yield return new WaitForSeconds(0.3f);
         yield return StartCoroutine(ShowTextName(profile));
-        
+
         var description = profile.tmpDesc.text;
         profile.tmpDesc.text = string.Empty;
         profile.tmpDesc.gameObject.SetActive(true);
@@ -65,14 +62,6 @@ public class ProfilePanel : MonoBehaviour
             profile.tmpDesc.text += letter;
             yield return wait_100ms;
         }
-    }
-
-    private IEnumerator ShowPicture(Profile profile)
-    {
-        yield return new WaitForSeconds(0.3f);
-
-        // profile.picture_01.SetActive(true);
-        // profile.picture_02.SetActive(true);
     }
 
     private IEnumerator ShowTextName(Profile profile)
