@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                time += Time.deltaTime * 10;
+                time += Time.deltaTime;
                 timeshow = 30f - time;
                 TimeTxt.text = timeshow.ToString("00.00");
             }
