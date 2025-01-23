@@ -130,7 +130,6 @@ public class GameManager : MonoBehaviour
             if (cardCount == 0)
             {
                 successGame();
-                // endGame();
             }
         }
         else
