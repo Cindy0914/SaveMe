@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     public Animator StartAnim;
     bool startgame = false;
+    bool isEnd = false;
 
     //AudioSource audioSource;
     //public AudioClip clip;
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Invoke("StartGame", 2.3f);
+            Invoke("StartGame", 2.2f);
         }
 
         StartAnim.SetBool("istutorial", System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")));
@@ -73,19 +74,18 @@ public class GameManager : MonoBehaviour
                 Instantiate(WarningObject);
                 isWarning = true;
             }
-            if (time >= 30f)
+            if (isEnd){}
+            else if (time >= 30f)
             {
                 time = 30f;
-                timeshow = 30f - time;
-                TimeTxt.text = timeshow.ToString("00.00");
                 endGame();
             }
             else
             {
                 time += Time.deltaTime;
-                timeshow = 30f - time;
-                TimeTxt.text = timeshow.ToString("00.00");
             }
+            timeshow = 30f - time;
+            TimeTxt.text = timeshow.ToString("00.00");
         }
         else
         {
@@ -126,7 +126,8 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
             if (cardCount == 0)
             {
-                successGame();
+                isEnd = true;
+                Invoke("successGame", 1f);
             }
         }
         else
