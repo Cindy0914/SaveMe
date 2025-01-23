@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     AudioSource audioSource;
     public AudioClip matchclip;
     public AudioClip mismatchclip;
+    public AudioClip Waring;
 
     private void Awake()
     {
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
             {
                 Instantiate(WarningObject);
                 isWarning = true;
+                audioSource.PlayOneShot(Waring);
             }
             if (time >= 30f)
             {
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
     {
         endTxt.SetActive(true);
         Time.timeScale = 0f;
+        AudioManager.Instance.StopBackgroundMusic();
     }
 
     public void successGame()
