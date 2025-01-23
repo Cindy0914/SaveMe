@@ -9,6 +9,5 @@ public class StartBtn : MonoBehaviour
     {
         PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(false));
         SceneManager.LoadScene("MainScene");
-        AudioManager.Instance.StopBackgroundMusic();
     }
 }

@@ -530,9 +530,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 899451279}
-        m_TargetAssemblyTypeName: startButton, Assembly-CSharp
-        m_MethodName: playsound
+      - m_Target: {fileID: 899451281}
+        m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
+        m_MethodName: gotutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -542,9 +542,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 899451281}
-        m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
-        m_MethodName: gotutorial
+      - m_Target: {fileID: 899451279}
+        m_TargetAssemblyTypeName: startButton, Assembly-CSharp
+        m_MethodName: playsound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -700,7 +700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37772f4c61d2d74d9edf43682c6df5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BgmaudioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: 636c6162e579eee47a32f0653bcbb219, type: 3}
 --- !u!114 &899451280
 MonoBehaviour:
@@ -1034,10 +1033,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1534097898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f42e27fa4a5f1a4da55bd1c8aa580cd, type: 3}
+  m_Script: {fileID: 11500000, guid: b48997d7a6c36354982cbf1c0af717a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 2ab7b667b5456fc4a81f9f3e9fd59c5e, type: 3}
+  startSceneClip: {fileID: 8300000, guid: 2ab7b667b5456fc4a81f9f3e9fd59c5e, type: 3}
+  mainSceneClip: {fileID: 8300000, guid: 05f7dd422569ed445a90b888a09b3fe8, type: 3}
 --- !u!1 &1560532134
 GameObject:
   m_ObjectHideFlags: 0

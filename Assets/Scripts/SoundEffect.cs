@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class startButton : MonoBehaviour
+public class SoundEffect : MonoBehaviour
 {
 
     AudioSource BtnSource;
@@ -15,9 +14,6 @@ public class startButton : MonoBehaviour
     {
         BtnSource = GetComponent<AudioSource>();
         BtnSource.clip = this.clip;
-    }
-    public void playsound()
-    {
         BtnSource.PlayOneShot(clip);
     }
 }

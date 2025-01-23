@@ -31,10 +31,13 @@ public class GameManager : MonoBehaviour
     public Animator StartAnim;
     bool startgame = false;
 
+    [Header("AudioSource")]
+
     AudioSource audioSource;
     public AudioClip matchclip;
     public AudioClip mismatchclip;
     public AudioClip Waring;
+    // public AudioClip gameover;
 
     private void Awake()
     {
@@ -63,7 +66,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("clearTime", 0f);
 
         audioSource = GetComponent<AudioSource>();
-        AudioManager.Instance.StartBackgroundMusic();
+        // AudioManager.Instance.StartBackgroundMusic();
         
     }
 
@@ -116,7 +119,7 @@ public class GameManager : MonoBehaviour
     {
         endTxt.SetActive(true);
         Time.timeScale = 0f;
-        AudioManager.Instance.StopBackgroundMusic();
+        // audioSource.PlayOneShot(gameover);
     }
 
     public void successGame()
