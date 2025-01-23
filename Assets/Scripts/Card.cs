@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
 
     public GameObject front;
     public GameObject back;
+    public GameObject ef1, ef2, ef3, ef4;
 
     public Animator Anim;
 
@@ -57,7 +58,16 @@ public class Card : MonoBehaviour
     void DestroyCardInvoke()
     {
         Anim.SetBool("isCorrect", true);
+        Invoke("SpownEffect", 0.5f);
         //Destroy(gameObject);
+    }
+
+    void SpownEffect()
+    {
+        Instantiate(ef1, this.transform);
+        Instantiate(ef2, this.transform);
+        Instantiate(ef3, this.transform);
+        Instantiate(ef4, this.transform);
     }
 
     public void CloseCard()
