@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
             newClip = mainSceneClip;
         }
 
-        if (newClip != null && audioSource.clip != newClip)
+        if (newClip != null)
         {
             audioSource.Stop(); // 현재 재생 중인 BGM 정지
             audioSource.clip = newClip; // 새로운 클립 할당
@@ -76,7 +76,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM()
     {
-        if (audioSource.isPlaying)
+        if (!audioSource.isPlaying)
         {
             audioSource.Play();
         }
