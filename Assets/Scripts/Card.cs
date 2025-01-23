@@ -9,24 +9,22 @@ public class Card : MonoBehaviour
     public GameObject ef1, ef2, ef3, ef4;
     
     public Animator Anim;
-
-    AudioSource audioSource;
     public AudioClip clip;
 
     public SpriteRenderer frontImage;
+    private AudioSource audioSource;
 
-    void Start()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
-    void Update()
-    {
-    }
+   
     public void Setting(int number)
     {
         idx = number;
         frontImage.sprite = Resources.Load<Sprite>($"Picture{idx}");
     }
+    
     public void OpenCard()
     {
         audioSource.PlayOneShot(clip);
@@ -43,19 +41,19 @@ public class Card : MonoBehaviour
             GameManager.Instance.Matched();
         }
     }
+    
     public void DestroyCard()
     {
         Invoke("DestroyCardInvoke", 0.5f);
     }
 
-    void DestroyCardInvoke()
+    private void DestroyCardInvoke()
     {
         Anim.SetBool("isCorrect", true);
         Invoke("SpownEffect", 0.5f);
-        //Destroy(gameObject);
     }
 
-    void SpownEffect()
+    private void SpownEffect()
     {
         Instantiate(ef1, this.transform);
         Instantiate(ef2, this.transform);
@@ -67,7 +65,8 @@ public class Card : MonoBehaviour
     {
         Invoke("CloseCardInvoke", 0.7f);
     }
-    void CloseCardInvoke()
+    
+    private void CloseCardInvoke()
     {
         Anim.SetBool("isOpen", false);
     }

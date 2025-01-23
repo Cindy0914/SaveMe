@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    AudioSource audioSource;
     public AudioClip startSceneClip; // StartScene용 BGM
     public AudioClip mainSceneClip;  // MainScene용 BGM
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -23,8 +23,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         PlayBGMForScene(SceneManager.GetActiveScene().name);
@@ -71,14 +70,6 @@ public class AudioManager : MonoBehaviour
         if (audioSource.isPlaying)
         {
             audioSource.Stop();
-        }
-    }
-
-    public void PlayBGM()
-    {
-        if (!audioSource.isPlaying)
-        {
-            audioSource.Play();
         }
     }
 }

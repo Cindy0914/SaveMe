@@ -4006,7 +4006,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'RECORD
 
-    30.00'
+    00.00'
 --- !u!222 &1608114195
 CanvasRenderer:
   m_ObjectHideFlags: 0

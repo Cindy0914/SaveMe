@@ -15,6 +15,7 @@ public class ProfilePanel : MonoBehaviour
     [SerializeField] private Button retryButton;
 
     private readonly WaitForSeconds wait_50ms = new(0.05f);
+    private const string clearTimeKey = "clearTime";
     private float resultTime;
 
     public void Start()
@@ -34,9 +35,9 @@ public class ProfilePanel : MonoBehaviour
 
     private void InitTimePanel()
     {
-        if (PlayerPrefs.HasKey("clearTime"))
+        if (PlayerPrefs.HasKey(clearTimeKey))
         {
-            resultTime = PlayerPrefs.GetFloat("clearTime");
+            resultTime = PlayerPrefs.GetFloat(clearTimeKey);
         }
 
         timePanel.SetTime(resultTime);

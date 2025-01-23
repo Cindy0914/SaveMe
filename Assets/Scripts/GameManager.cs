@@ -23,18 +23,18 @@ public class GameManager : MonoBehaviour
     public int cardCount = 0;
 
     public GameObject WarningObject;
-    bool isWarning = false;
+    private bool isWarning = false;
 
-    float time = 0f;
-    float timeshow = 0f;
+    private float time = 0f;
+    private float timeshow = 0f;
 
     public Animator StartAnim;
-    bool startgame = false;
-    bool isEnd = false;
+    private bool startgame = false;
+    private bool isEnd = false;
 
     [Header("AudioSource")]
-
     AudioSource audioSource;
+
     public AudioClip matchclip;
     public AudioClip mismatchclip;
     public AudioClip Waring;
@@ -47,68 +47,63 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Time.timeScale = 1f;
 
         if (!System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")))
         {
-            Invoke("StartGame", 5f);
+            Invoke(nameof(StartGame), 5f);
         }
         else
         {
-            Invoke("StartGame", 1.5f);
+            Invoke(nameof(StartGame), 1.5f);
         }
 
         StartAnim.SetBool("istutorial", System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")));
-
         PlayerPrefs.SetFloat("clearTime", 0f);
 
         audioSource = GetComponent<AudioSource>();
-        
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (startgame)
-        {
-            Destroy(startAni);
-            board.enabled = true;
+        time = 0f;
+        timeshow = 30f - time;
+        TimeTxt.text = timeshow.ToString("00.00");
 
-            if (!isWarning && time >= 20f)
-            {
-                Instantiate(WarningObject);
-                isWarning = true;
-                audioSource.PlayOneShot(Waring);
-                audioSource.volume = 0.5f;
-            }
-            if (isEnd) { }
-            else if (time >= 30f)
-            {
-                time = 30f;
-                endGame();
-            }
-            else
-            {
-                time += Time.deltaTime;
-            }
-            timeshow = 30f - time;
-            TimeTxt.text = timeshow.ToString("00.00");
+        if (!startgame) return;
+        
+        Destroy(startAni);
+        board.enabled = true;
+        
+        // 게임 시작 후 20초가 지나면 경고 UI 생성
+        if (!isWarning && time >= 20f)
+        {
+            Instantiate(WarningObject);
+            isWarning = true;
+            audioSource.PlayOneShot(Waring);
+            audioSource.volume = 0.5f;
         }
+        // 게임 시작 후 30초가 지나면 게임 오버
+        else if (time >= 30f)
+        {
+            time = 30f;
+            endGame();
+        }
+        // 게임 오버 전까지 시간 증가
         else
         {
-            time = 0f;
-            timeshow = 30f - time;
-            TimeTxt.text = timeshow.ToString("00.00");
+            time += Time.deltaTime;
         }
+
+        timeshow = 30f - time;
+        TimeTxt.text = timeshow.ToString("00.00");
     }
 
     private void StartGame()
     {
-        if(board != null)
+        if (board != null)
         {
             PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(true));
             startgame = true;
@@ -119,7 +114,7 @@ public class GameManager : MonoBehaviour
     {
         endTxt.SetActive(true);
         Time.timeScale = 0f;
-        
+
         // 메인 BGM 중단
         if (AudioManager.Instance != null)
         {
@@ -137,6 +132,7 @@ public class GameManager : MonoBehaviour
     {
         audioSource.PlayOneShot(matchclip);
     }
+
     private void callfailsSound()
     {
         audioSource.PlayOneShot(mismatchclip);
@@ -146,21 +142,19 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            //audioSource.PlayOneShot(matchclip);
-            Invoke("callSuccessSound", 0.5f);
+            Invoke(nameof(callSuccessSound), 0.5f);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
             if (cardCount == 0)
             {
                 isEnd = true;
-                Invoke("successGame", 1f);
+                Invoke(nameof(successGame), 1f);
             }
         }
         else
         {
-            //audioSource.PlayOneShot(mismatchclip);
-            Invoke("callfailsSound", 0.5f);
+            Invoke(nameof(callfailsSound), 0.5f);
             firstCard.CloseCard();
             secondCard.CloseCard();
         }

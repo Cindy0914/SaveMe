@@ -3,20 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class startButton : MonoBehaviour
+public class StartButton : MonoBehaviour
 {
-    AudioSource BtnSource;
-    public AudioClip clip;
+    private AudioSource BtnSource;
+    public AudioClip ButtonClip;
 
-    // Start is called before the first frame update
-    
-    void Start()
+    private void Start()
     {
         BtnSource = GetComponent<AudioSource>();
-        BtnSource.clip = this.clip;
     }
-    public void playsound()
+
+    public void PlaySound()
     {
-        BtnSource.PlayOneShot(clip);
+        BtnSource.PlayOneShot(ButtonClip);
+    }
+    
+    public void GoTutorial()
+    {
+        PlayerPrefs.SetInt("isTutorial", System.Convert.ToInt16(false));
+        Invoke(nameof(InvokeGoTutorial), 0.2f);
+    }
+
+    private void InvokeGoTutorial()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
