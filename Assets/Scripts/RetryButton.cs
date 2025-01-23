@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class RetryButton : MonoBehaviour
 {
-    public void Retry()
+    public void LoadScene()
     {
         // MainScene으로 이동
         SceneManager.LoadScene("MainScene");
-
-
     }
 }

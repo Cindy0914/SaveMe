@@ -119,6 +119,16 @@ public class ProfilePanel : MonoBehaviour
 
     private void AddOnRetryButtonClick()
     {
-        retryButton.onClick.AddListener(() => { audioSource.PlayOneShot(buttonSound); });
+        retryButton.onClick.AddListener(() =>
+        {
+            audioSource.PlayOneShot(buttonSound);
+            StartCoroutine(LoadSceneWithDelay());
+        });
+    }
+    
+    private IEnumerator LoadSceneWithDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
     }
 }

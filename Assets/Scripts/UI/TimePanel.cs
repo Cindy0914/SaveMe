@@ -11,6 +11,6 @@ public class TimePanel : MonoBehaviour
     public void SetTime(float time)
     {
         var strTime = time.ToString("F2");
-        tmpTime.text = $"RECORD {strTime}";
+        tmpTime.text = $"RECORD\n{strTime}";
     }
 }

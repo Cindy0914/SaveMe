@@ -6575,7 +6575,7 @@ MonoBehaviour:
   WarningObject: {fileID: 7683551611900806066, guid: 84081d2f030315a488cbd61b18f1c985, type: 3}
   StartAnim: {fileID: 1236010474}
   matchclip: {fileID: 8300000, guid: 6d31865a124111947a4f307ba72b8159, type: 3}
-  mismatchclip: {fileID: 8300000, guid: b038c32e5640bd9498abafe30908e901, type: 3}
+  mismatchclip: {fileID: 8300000, guid: 8433611593efcda4aba80c5f4f1bfdf5, type: 3}
   Waring: {fileID: 8300000, guid: c38c8eae08a100942a65c88c65505063, type: 3}
 --- !u!114 &1323583189
 MonoBehaviour:
