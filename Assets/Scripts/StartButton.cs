@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class startButton : MonoBehaviour
 {
-
     AudioSource BtnSource;
     public AudioClip clip;
 

@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 899451273}
   - component: {fileID: 899451278}
   - component: {fileID: 899451279}
-  - component: {fileID: 899451280}
+  - component: {fileID: 899451282}
   - component: {fileID: 899451281}
   m_Layer: 5
   m_Name: StartBtn
@@ -532,7 +532,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 899451281}
         m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
-        m_MethodName: gotutorial
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -542,7 +542,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 899451279}
+      - m_Target: {fileID: 899451282}
         m_TargetAssemblyTypeName: startButton, Assembly-CSharp
         m_MethodName: playsound
         m_Mode: 1
@@ -700,20 +700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37772f4c61d2d74d9edf43682c6df5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 636c6162e579eee47a32f0653bcbb219, type: 3}
---- !u!114 &899451280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899451270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e070a9a19bd3f6c428122aa260f4d42a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startButton: {fileID: 899451279}
 --- !u!114 &899451281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,6 +712,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4936a624bbce9554eace1576ac67f09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &899451282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899451270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b308ee8bd9fc0e542bb6f52c9e18c0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: d552698ccf3b9a945a73463820e745d4, type: 3}
 --- !u!1 &964491981
 GameObject:
   m_ObjectHideFlags: 0
