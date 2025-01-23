@@ -5,8 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class startButton : MonoBehaviour
 {
-    public void StartGame()
+
+    public AudioSource BgmaudioSource;
+    public AudioClip clip;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        SceneManager.LoadScene("MainScene");
+        BgmaudioSource = GetComponent<AudioSource>();
+        BgmaudioSource.clip = this.clip;
+    }
+    public void playsound()
+    {
+        BgmaudioSource?.PlayOneShot(clip);
     }
 }
