@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Fonts.meta
+guid: 8d28298332c49f84a992303749dcace9
+folderAsset: yes
+DefaultImporter:
+========
 guid: 156cc2389fb61484fa5e1aee13a09d52
 NativeFormatImporter:
+>>>>>>>> main:Assets/Animation/Ani1.anim.meta
   externalObjects: {}
   mainObjectFileID: 7400000
   userData: 

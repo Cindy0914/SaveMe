@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Settings")]
     public static GameManager Instance;
 
     public Card firstCard;
     public Card secondCard;
 
     public Text TimeTxt;
-    public GameObject endTxt; //¾Øµå UI
+
+    [Header("GameObject")]
+    public GameObject endTxt; //End UI
 
     public GameObject startAni;
     public Board board;
@@ -28,8 +31,13 @@ public class GameManager : MonoBehaviour
     public Animator StartAnim;
     bool startgame = false;
 
-    //AudioSource audioSource;
-    //public AudioClip clip;
+    [Header("AudioSource")]
+
+    AudioSource audioSource;
+    public AudioClip matchclip;
+    public AudioClip mismatchclip;
+    public AudioClip Waring;
+    // public AudioClip gameover;
 
     private void Awake()
     {
@@ -57,7 +65,9 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("clearTime", 0f);
 
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        // AudioManager.Instance.StartBackgroundMusic();
+        
     }
 
     // Update is called once per frame
@@ -72,6 +82,7 @@ public class GameManager : MonoBehaviour
             {
                 Instantiate(WarningObject);
                 isWarning = true;
+                audioSource.PlayOneShot(Waring);
             }
             if (time >= 30f)
             {
@@ -108,6 +119,7 @@ public class GameManager : MonoBehaviour
     {
         endTxt.SetActive(true);
         Time.timeScale = 0f;
+        // audioSource.PlayOneShot(gameover);
     }
 
     public void successGame()
@@ -120,7 +132,7 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            //audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(matchclip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
@@ -131,6 +143,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(mismatchclip);
             firstCard.CloseCard();
             secondCard.CloseCard();
         }

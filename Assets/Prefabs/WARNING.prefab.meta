@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animatios.meta
+guid: 84081d2f030315a488cbd61b18f1c985
+folderAsset: yes
+DefaultImporter:
+========
 guid: 4ef72ad077e2fb04e985663899cc0677
 PrefabImporter:
+>>>>>>>> main:Assets/Prefabs/WARNING.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
