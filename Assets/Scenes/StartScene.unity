@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 899451278}
   - component: {fileID: 899451279}
   - component: {fileID: 899451280}
+  - component: {fileID: 899451281}
   m_Layer: 5
   m_Name: StartBtn
   m_TagString: Untagged
@@ -532,6 +533,18 @@ MonoBehaviour:
       - m_Target: {fileID: 899451279}
         m_TargetAssemblyTypeName: startButton, Assembly-CSharp
         m_MethodName: playsound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 899451281}
+        m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
+        m_MethodName: gotutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -702,6 +715,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 899451279}
+--- !u!114 &899451281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899451270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4936a624bbce9554eace1576ac67f09c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &964491981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,11 +1034,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1534097898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68d4bd9a1d3298e46b674661464aba8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f42e27fa4a5f1a4da55bd1c8aa580cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  clip: {fileID: 8300000, guid: e6b475e0fff531d438454a6660694c8f, type: 3}
+  clip: {fileID: 8300000, guid: 2ab7b667b5456fc4a81f9f3e9fd59c5e, type: 3}
 --- !u!1 &1560532134
 GameObject:
   m_ObjectHideFlags: 0

@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("clearTime", 0f);
 
         audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.StartBackgroundMusic();
+        
     }
 
     // Update is called once per frame

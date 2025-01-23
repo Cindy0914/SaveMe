@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class startButton : MonoBehaviour
 {
 
-    public AudioSource BgmaudioSource;
+    AudioSource BgmaudioSource;
     public AudioClip clip;
 
     // Start is called before the first frame update
@@ -17,6 +17,6 @@ public class startButton : MonoBehaviour
     }
     public void playsound()
     {
-        BgmaudioSource?.PlayOneShot(clip);
+        BgmaudioSource.PlayOneShot(clip);
     }
 }

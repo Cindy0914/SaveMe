@@ -35,4 +35,11 @@ public class AudioManager : MonoBehaviour
             audioSource.Stop();
         }
     }
+    public void StartBackgroundMusic()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+    }
 }
