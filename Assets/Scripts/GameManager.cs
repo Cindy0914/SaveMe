@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
                 Instantiate(WarningObject);
                 isWarning = true;
                 audioSource.PlayOneShot(Waring);
+                audioSource.volume = 0.5f;
             }
             if (isEnd) { }
             else if (time >= 30f)
