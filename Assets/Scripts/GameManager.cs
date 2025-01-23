@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     bool startgame = false;
 
     AudioSource audioSource;
-    public AudioClip clip;
+    public AudioClip matchclip;
+    public AudioClip mismatchclip;
 
     private void Awake()
     {
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
     {
         if (firstCard.idx == secondCard.idx)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(matchclip);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
@@ -134,6 +135,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(mismatchclip);
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
