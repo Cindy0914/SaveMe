@@ -64,4 +64,21 @@ public class AudioManager : MonoBehaviour
             audioSource.Play(); // 새로운 BGM 재생
         }
     }
+
+    // BGM 중단 메서드
+    public void StopBGM()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
+
+    public void PlayBGM()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+    }
 }

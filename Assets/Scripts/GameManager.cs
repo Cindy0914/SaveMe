@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     public AudioClip matchclip;
     public AudioClip mismatchclip;
     public AudioClip Waring;
-    // public AudioClip gameover;
 
     private void Awake()
     {
@@ -66,7 +65,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("clearTime", 0f);
 
         audioSource = GetComponent<AudioSource>();
-        // AudioManager.Instance.StartBackgroundMusic();
+        
         
     }
 
@@ -119,7 +118,12 @@ public class GameManager : MonoBehaviour
     {
         endTxt.SetActive(true);
         Time.timeScale = 0f;
-        // audioSource.PlayOneShot(gameover);
+        
+        // 메인 BGM 중단
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopBGM();
+        }
     }
 
     public void successGame()
