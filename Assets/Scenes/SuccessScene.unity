@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 293613343}
   - component: {fileID: 293613346}
   m_Layer: 5
-  m_Name: btn_RetryFrame
+  m_Name: btn_Retry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 293613346}
-        m_TargetAssemblyTypeName: RetryButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: RetryBtn, Assembly-CSharp
         m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 293613341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76585e62d97a2d746b8c5f68a84b0d13, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bc3bfe1c6dd97e42ab36863d1786060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &480324262
@@ -3488,9 +3488,8 @@ GameObject:
   - component: {fileID: 1489181729}
   - component: {fileID: 1489181730}
   - component: {fileID: 1489181728}
-  - component: {fileID: 1489181727}
   - component: {fileID: 1489181731}
-  - component: {fileID: 1489181732}
+  - component: {fileID: 1489181727}
   m_Layer: 5
   m_Name: panel_Profile
   m_TagString: Untagged
@@ -3597,26 +3596,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31b57da12d1fca41beee61d78154fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSound: {fileID: 8300000, guid: d552698ccf3b9a945a73463820e745d4, type: 3}
+  textSound: {fileID: 8300000, guid: cc624d1a2212f0340b6352dee5ad101b, type: 3}
   profiles:
   - {fileID: 600865795}
   - {fileID: 270460553}
   - {fileID: 1995688208}
   - {fileID: 115981101}
   timePanel: {fileID: 1007596882}
---- !u!114 &1489181731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489181725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37772f4c61d2d74d9edf43682c6df5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 6ab57a545ca71ba4aa04562765e87a2b, type: 3}
---- !u!82 &1489181732
+  retryButton: {fileID: 293613343}
+--- !u!82 &1489181731
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4016,10 +4005,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1bfd12e79a6cbd64fa93656c372c7d69, type: 3}
-    m_FontSize: 50
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 4
     m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4027,7 +4016,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 30.00
+  m_Text: 'RECORD
+
+    30.00'
 --- !u!222 &1608114195
 CanvasRenderer:
   m_ObjectHideFlags: 0
