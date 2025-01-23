@@ -56,7 +56,8 @@ public class Card : MonoBehaviour
 
     void DestroyCardInvoke()
     {
-        Destroy(gameObject);
+        Anim.SetBool("isCorrect", true);
+        //Destroy(gameObject);
     }
 
     public void CloseCard()
