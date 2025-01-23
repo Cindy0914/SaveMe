@@ -6,12 +6,15 @@ public class Card : MonoBehaviour
     public int idx = 0;
     public GameObject front;
     public GameObject back;
-    //public Animator Anim;
+    public GameObject ef1, ef2, ef3, ef4;
+    
+    public Animator Anim;
 
     AudioSource audioSource;
     public AudioClip clip;
 
     public SpriteRenderer frontImage;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -27,9 +30,9 @@ public class Card : MonoBehaviour
     public void OpenCard()
     {
         audioSource.PlayOneShot(clip);
-        //Anim.SetBool("isOpen", true);
-        front.SetActive(true);
-        back.SetActive(false);
+        
+        Anim.SetBool("isOpen", true);
+
         if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
@@ -44,18 +47,28 @@ public class Card : MonoBehaviour
     {
         Invoke("DestroyCardInvoke", 0.5f);
     }
+
     void DestroyCardInvoke()
     {
-        Destroy(gameObject);
+        Anim.SetBool("isCorrect", true);
+        Invoke("SpownEffect", 0.5f);
+        //Destroy(gameObject);
     }
+
+    void SpownEffect()
+    {
+        Instantiate(ef1, this.transform);
+        Instantiate(ef2, this.transform);
+        Instantiate(ef3, this.transform);
+        Instantiate(ef4, this.transform);
+    }
+
     public void CloseCard()
     {
-        Invoke("CloseCardInvoke", 0.5f);
+        Invoke("CloseCardInvoke", 0.7f);
     }
     void CloseCardInvoke()
     {
-        //Anim.SetBool("isOpen", false);
-        front.SetActive(false);
-        back.SetActive(true);
+        Anim.SetBool("isOpen", false);
     }
 }

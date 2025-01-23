@@ -779,6 +779,11 @@ MonoBehaviour:
   idx: 0
   front: {fileID: 6816747326173477201}
   back: {fileID: 9080536711728857352}
+  ef1: {fileID: 6163409011150059505, guid: 8ac0cef888a44044c8dbf7076cf0f53c, type: 3}
+  ef2: {fileID: 7079767884438608450, guid: 2379faea711f33d4893b19fd151b779e, type: 3}
+  ef3: {fileID: 8190246791918826473, guid: 59de3de79d846534daedba630c86e882, type: 3}
+  ef4: {fileID: 8847201759285799013, guid: 8b46e0547ce7cbf4dbc01cdd1fbab1b5, type: 3}
+  Anim: {fileID: 4139186533236311989}
   clip: {fileID: 8300000, guid: 0cfbbfd3a62a8a24f8db9343035782f1, type: 3}
   frontImage: {fileID: 3809677480772632441}
 --- !u!212 &5926933784129856952
