@@ -54,11 +54,11 @@ public class GameManager : MonoBehaviour
 
         if (!System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")))
         {
-            Invoke("StartGame", 5.7f);
+            Invoke("StartGame", 5f);
         }
         else
         {
-            Invoke("StartGame", 2.3f);
+            Invoke("StartGame", 1.5f);
         }
 
         StartAnim.SetBool("istutorial", System.Convert.ToBoolean(PlayerPrefs.GetInt("isTutorial")));
@@ -132,11 +132,21 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("SuccessScene");
     }
 
+    private void callSuccessSound()
+    {
+        audioSource.PlayOneShot(matchclip);
+    }
+    private void callfailsSound()
+    {
+        audioSource.PlayOneShot(mismatchclip);
+    }
+
     public void Matched()
     {
         if (firstCard.idx == secondCard.idx)
         {
-            audioSource.PlayOneShot(matchclip);
+            //audioSource.PlayOneShot(matchclip);
+            Invoke("callSuccessSound", 0.5f);
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             cardCount -= 2;
@@ -148,7 +158,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            audioSource.PlayOneShot(mismatchclip);
+            //audioSource.PlayOneShot(mismatchclip);
+            Invoke("callfailsSound", 0.5f);
             firstCard.CloseCard();
             secondCard.CloseCard();
         }

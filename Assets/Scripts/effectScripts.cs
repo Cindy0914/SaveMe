@@ -18,6 +18,6 @@ public class effectScripts : MonoBehaviour
 
     private void addforce()
     {
-        rb.AddForce(transform.up * 3f, ForceMode2D.Impulse);
+        rb.AddForce(transform.up * 5f, ForceMode2D.Impulse);
     }
 }
