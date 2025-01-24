@@ -68,37 +68,40 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        time = 0f;
-        timeshow = 30f - time;
-        TimeTxt.text = timeshow.ToString("00.00");
+        if (startgame) 
+        {
+            Destroy(startAni);
+            board.enabled = true;
+        
+            // 게임 시작 후 20초가 지나면 경고 UI 생성
+            if (!isWarning && time >= 20f)
+            {
+                Instantiate(WarningObject);
+                isWarning = true;
+                audioSource.PlayOneShot(Waring);
+                audioSource.volume = 0.5f;
+            }
+            // 게임 시작 후 30초가 지나면 게임 오버
+            else if (time >= 30f)
+            {
+                time = 30f;
+                endGame();
+            }
+            // 게임 오버 전까지 시간 증가
+            else
+            {
+                time += Time.deltaTime;
+            }
 
-        if (!startgame) return;
-        
-        Destroy(startAni);
-        board.enabled = true;
-        
-        // 게임 시작 후 20초가 지나면 경고 UI 생성
-        if (!isWarning && time >= 20f)
-        {
-            Instantiate(WarningObject);
-            isWarning = true;
-            audioSource.PlayOneShot(Waring);
-            audioSource.volume = 0.5f;
+            timeshow = 30f - time;
+            TimeTxt.text = timeshow.ToString("00.00");
         }
-        // 게임 시작 후 30초가 지나면 게임 오버
-        else if (time >= 30f)
-        {
-            time = 30f;
-            endGame();
-        }
-        // 게임 오버 전까지 시간 증가
         else
         {
-            time += Time.deltaTime;
+            time = 0f;
+            timeshow = 30f - time;
+            TimeTxt.text = timeshow.ToString("00.00");
         }
-
-        timeshow = 30f - time;
-        TimeTxt.text = timeshow.ToString("00.00");
     }
 
     private void StartGame()
