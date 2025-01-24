@@ -81,6 +81,11 @@ public class GameManager : MonoBehaviour
                 audioSource.PlayOneShot(Waring);
                 audioSource.volume = 0.5f;
             }
+
+            //text 시간 부분
+
+            if (isEnd){} //만약 게임을 성공할 시 시간을 멈추기 위한 코드
+
             // 게임 시작 후 30초가 지나면 게임 오버
             else if (time >= 30f)
             {
